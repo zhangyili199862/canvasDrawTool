@@ -1,7 +1,7 @@
 <template>
   <div
     class="draw-tool"
-    :style="`width:${canvasWidth + 'px'};height:${canvasHeight + 'px'}`"
+    :style="`width:${canvasWidth + 'px'};height:${canvasHeight + 40 + 'px'}`"
   >
     <div class="draw-buttons" v-if="!isReadonly">
       <el-row>
