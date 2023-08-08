@@ -1,45 +1,8 @@
 <template>
   <div
     class="draw-tool"
-    :style="`width:${canvasWidth + 'px'};height:${canvasHeight + 40 + 'px'}`"
+    :style="`width:${canvasWidth + 'px'};height:${canvasHeight + 'px'}`"
   >
-    <div class="draw-buttons" v-if="!isReadonly">
-      <el-row>
-        <div>
-          <el-button @click="drawClick" type="primary" link class="draw-button">
-            <img src="@/assets/img/Draw.svg" class="draw-icon" />
-            {{ isDrawing ? "取消绘制" : "绘制" }}</el-button
-          >
-        </div>
-      </el-row>
-      <div>
-        <el-button @click="clearCanvas" type="danger" link class="draw-button">
-          <img src="@/assets/img/DrawClear.svg" class="draw-icon" />
-          清空</el-button
-        >
-        <el-button
-          @click="toggleDrawingsVisibility"
-          link
-          type="success"
-          class="draw-button"
-          ><img
-            src="@/assets/img/DrawPreviewO.svg"
-            class="draw-icon"
-            v-if="showDrawings"
-          /><img
-            src="@/assets/img/DrawPreviewC.svg"
-            class="draw-icon"
-            v-else-if="!showDrawings"
-          />预览</el-button
-        >
-        <el-button @click="savePolygon" type="primary" link class="draw-button"
-          ><img
-            src="@/assets/img/DrawCheck.svg"
-            class="draw-icon"
-          />确认</el-button
-        >
-      </div>
-    </div>
     <div
       class="draw-area"
       id="drawArea"
@@ -355,12 +318,13 @@ onMounted(() => {
   });
 });
 defineExpose({
-  initCanvas,
   polygons,
+  drawClick,
   clearCanvas,
-  isDrawing,
-  stopMode,
+  toggleDrawingsVisibility,
   savePolygon,
+  initCanvas,
+  stopMode,
 });
 </script>
 <style lang="scss">
